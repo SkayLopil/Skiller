@@ -1,0 +1,53 @@
+var pelota;
+var obstacle;
+var obstacle1;
+
+function setup() {
+  createCanvas(600,600);
+  pelota = new Ball();
+  obstacle = new obstaculo();
+  obstacle1 = new obstaculo();
+}
+
+function draw() {
+  background(0);
+  console.log(pelota);
+  pelota.mover();
+  pelota.mostrar();
+  obstacle.mostrar();
+  obstacle.mover();
+
+}
+
+class Ball {
+  constructor() {
+    this.x = 400;
+    this.y = 400;
+}
+
+mostrar(){
+  ellipse(this.x, this.y, 60, 60);
+}
+
+mover(){
+  this.x--;
+  this.y++;
+}
+}
+
+//objeto rectangulo 
+class obstaculo{
+ constructor(){
+ this.x = random(0,200);  
+ this.y = random(0,200);
+ }
+  
+mostrar(){
+rect(this.x,this.y,150,150); 
+}
+  
+mover(){
+//this.x++;
+this.y++;
+}
+}
